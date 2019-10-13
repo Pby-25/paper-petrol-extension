@@ -9,9 +9,6 @@
       "*://localhost/*",
       "*://*.paperpetrol.com/*"
       ],
-    "browser_action": {
-        "default_title": "PaperPetrol.com"
-      },
     "background": {
       "scripts": ["background.js"],
       "persistent": false

@@ -4,10 +4,9 @@ chrome.runtime.onInstalled.addListener(function() {
     });
   });
 
-chrome.browserAction.onClicked.addListener( (tab)=>{
-    console.log("okay wow")
-})
+chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse)=>{
 
+})
 const INTERVAL = 5000;
 setTimeout(function(){
     chrome.tabs.create({url: "https://goo.gl/maps/BNtLNQc7AUzu4rkF8", active: false }, (tab) =>{
