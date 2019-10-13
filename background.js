@@ -10,9 +10,14 @@ chrome.browserAction.onClicked.addListener( (tab)=>{
 
 const INTERVAL = 5000;
 setTimeout(function(){
-    chrome.tabs.create({url: "https://maps.google.com", active: false }, tab =>{
+    chrome.tabs.create({url: "https://goo.gl/maps/BNtLNQc7AUzu4rkF8", active: false }, (tab) =>{
         setTimeout(function(){
-          chrome.tabs.executeScript(tab.id, {code:"console.log('qwe')"})
+          chrome.tabs.executeScript(tab.id, {file: "paperpetrol.js"}, ()=>{
+            chrome.tabs.sendMessage(tab.id, {newLink: true}, (response)=> {
+              console.log(response)
+              
+            })
+          })
             // chrome.tabs.remove(tab.id);
         },INTERVAL);
     }); 
