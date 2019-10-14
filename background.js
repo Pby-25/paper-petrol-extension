@@ -13,13 +13,15 @@ chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse)=>{
   request.reduce((resPromise, station)=>{
     return resPromise.then( (gasPrices) => {
       return new Promise((resolve)=>{
+        gasPrices[station.place_id] = "hey!";
         setTimeout(function () {
           console.log(station);
-          resolve();
+          console.log(gasPrices);
+          resolve(gasPrices);
       }, 1000)
     })
   })
-  }, Promise.resolve());
+  }, Promise.resolve({}));
 
 // request.reduce( (p, station, i) => 
 //     p.then(_ => new Promise(resolve =>
