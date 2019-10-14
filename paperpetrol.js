@@ -2,6 +2,7 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse)=>{
   var response = {}
   let priceInfo = document.getElementsByClassName("section-gas-prices-price");
+  response.success = priceInfo.length > 0;
   for (const info of priceInfo){
     const grade = info.querySelector(".section-gas-prices-label").textContent;
     const price = info.querySelector("span").textContent;
