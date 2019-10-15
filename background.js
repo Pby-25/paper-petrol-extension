@@ -27,6 +27,7 @@ chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse)=>{
                 chrome.tabs.sendMessage(tab.id, paperpetrolRequest, (response)=> {
                   if (response.success) {
                     response.newLink = paperpetrolRequest.newLink;
+                    response.place_id = station.place_id;
                     gasPrices.push(response);
                   }
                   resolve(gasPrices);
